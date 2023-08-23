@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/calculator" rel="stylesheet">
+</head>
+<style>
+    body {
+        display: flex;
+        font-family: 'Josefin Sans', sans-serif;
+        src: url('digital-7.regular.ttf');
+        align-items: center;
+        justify-content: center;
+        height: 642px;
+        background: url("beach.jpg");
+        background-color: #cccccc;
+        /* height: 500px; */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .clock {
+        text-align: center;
+        box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+        border-radius: 5px;
+        backdrop-filter: blur(14px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .clock-digit {
+        /* display: inline; */
+        display: flex;
+        /* justify-content: center; */
+    }
+
+    .clock-digit .digit {
+        padding: 10px 20px 10px 20px;
+    }
+
+    .clock-digit .digit h1 {
+        font-family: 'Calculator', sans-serif;
+    }
+
+    .dif {
+        display: flex;
+        align-items: center;
+
+    }
+</style>
+
+<body>
+    <div class="clock">
+        <div class="clock-title">
+            <h1>DIGITAL CLOCK</h1>
+        </div>
+        <div class="clock-digit">
+            <div class="digit">
+                <h1 id="hours">08</h1>
+                <span>HOURS</span>
+            </div>
+            <div class="digit">
+                <h1 id="minutes">46</h1>
+                <span>MINUTES</span>
+            </div>
+            <div class="digit">
+                <h1 id="seconds">07</h1>
+                <span>SECONDS</span>
+            </div>
+            <div class="dif digit">
+                <span">PM</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let hours = document.getElementById("hours");
+    let minutes = document.getElementById("minutes");
+    let seconds = document.getElementById("seconds");
+    setInterval(() => {
+        let time = new Date();
+        if(time.getHours() < 10){
+            hours.innerHTML = "0"+ time.getHours();
+        }else{
+            hours.innerHTML = time.getHours();
+        }
+        if(time.getMinutes() < 10){
+            minutes.innerHTML = "0"+ time.getMinutes();
+        }else{
+            minutes.innerHTML = time.getMinutes();
+        }          
+        
+        if(time.getSeconds() < 10){
+            seconds.innerHTML = "0"+ time.getSeconds();
+        }else{
+            seconds.innerHTML = time.getSeconds();
+        }
+
+    }, 1000);
+
+</script>
+
+</html>
